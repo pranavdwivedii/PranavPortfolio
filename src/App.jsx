@@ -172,7 +172,7 @@ export default function App() {
   return (
     <div style={{ background: COLORS.bg, color: COLORS.white, minHeight: "100vh", fontFamily: "'Syne', sans-serif", overflowX: "hidden", cursor: "none" }}>
 
-      {/* Google Fonts */}
+      {/* Google Fonts & Media Queries */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; cursor: none !important; }
@@ -181,6 +181,33 @@ export default function App() {
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: ${COLORS.bg}; }
         ::-webkit-scrollbar-thumb { background: ${COLORS.gray2}; border-radius: 2px; }
+        
+        /* Responsive Overrides */
+        @media (max-width: 1024px) {
+          .nav-container { padding: 1rem 1.5rem !important; }
+          .hero-terminal-container { display: none !important; }
+          .hero-container { justify-content: center !important; }
+        }
+        @media (max-width: 768px) {
+          .section-padding { padding: 4rem 1.5rem !important; }
+          .nav-container { flex-direction: column !important; gap: 1rem !important; padding: 1.5rem !important; }
+          .nav-links { gap: 1rem !important; flex-wrap: wrap !important; justify-content: center !important; }
+          .hero-container { padding: 0 1.5rem 4rem !important; }
+          .hero-title { font-size: clamp(3rem, 12vw, 4.5rem) !important; }
+          .hero-subtitle { flex-direction: column !important; align-items: flex-start !important; gap: 1.5rem !important; }
+          .hero-buttons { flex-direction: column !important; width: 100% !important; }
+          .hero-buttons button { width: 100% !important; }
+          .scroll-hint { display: none !important; }
+          
+          .grid-2col { grid-template-columns: 1fr !important; gap: 3rem !important; }
+          .grid-stats { grid-template-columns: 1fr !important; gap: 1rem !important; }
+          .grid-experience { grid-template-columns: 1fr !important; gap: 2rem !important; }
+          .grid-projects { grid-template-columns: 1fr !important; gap: 1.5px !important; }
+          
+          .resume-box { flex-direction: column !important; text-align: center !important; gap: 2rem !important; padding: 2rem 1.5rem !important; }
+          .contact-buttons { flex-direction: column !important; }
+          .contact-buttons a { flex: 1 1 100% !important; }
+        }
       `}</style>
 
       {/* Custom cursor */}
@@ -198,7 +225,7 @@ export default function App() {
       }} />
 
       {/* NAV */}
-      <nav style={{
+      <nav className="nav-container" style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 500,
         padding: "1.5rem 3rem",
         display: "flex", justifyContent: "space-between", alignItems: "center",
@@ -208,7 +235,7 @@ export default function App() {
         <div style={{ fontFamily: "'Space Mono', monospace", fontSize: "0.78rem", color: COLORS.cyan, letterSpacing: "0.1em" }}>
           PD // Portfolio
         </div>
-        <div style={{ display: "flex", gap: "2.5rem" }}>
+        <div className="nav-links" style={{ display: "flex", gap: "2.5rem" }}>
           {navLinks.map((l) => (
             <button key={l} onClick={() => scroll(l)} style={{
               fontFamily: "'Space Mono', monospace",
@@ -235,7 +262,7 @@ export default function App() {
       </nav>
 
       {/* ── HERO ── */}
-      <section style={{
+      <section className="hero-container" style={{
         minHeight: "100vh",
         display: "flex", flexDirection: "column",
         justifyContent: "flex-end",
@@ -269,12 +296,12 @@ export default function App() {
             Software Development Engineer
           </div>
 
-          <h1 style={{ fontSize: "clamp(3rem, 7vw, 7rem)", fontWeight: 800, lineHeight: 0.88, letterSpacing: "-0.03em", marginBottom: "2.2rem" }}>
+          <h1 className="hero-title" style={{ fontSize: "clamp(3rem, 7vw, 7rem)", fontWeight: 800, lineHeight: 0.88, letterSpacing: "-0.03em", marginBottom: "2.2rem" }}>
             <span style={{ display: "block", color: COLORS.white }}>Pranav</span>
             <span style={{ display: "block", color: "transparent", WebkitTextStroke: `1px rgba(6,182,212,0.55)` }}>Dwivedi</span>
           </h1>
 
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: "2rem", flexWrap: "wrap" }}>
+          <div className="hero-subtitle" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: "2rem", flexWrap: "wrap" }}>
             <p style={{ fontFamily: "'Space Mono', monospace", fontSize: "0.8rem", color: COLORS.gray, maxWidth: 320, lineHeight: 1.9 }}>
               Building scalable AI-powered backend systems,<br />
               REST APIs, and analytics platforms.<br />
@@ -290,7 +317,7 @@ export default function App() {
             </div>
           </div>
 
-          <div style={{ display: "flex", gap: "1rem", marginTop: "2.5rem" }}>
+          <div className="hero-buttons" style={{ display: "flex", gap: "1rem", marginTop: "2.5rem" }}>
             <button onClick={() => scroll("contact")} style={{
               background: COLORS.cyan, color: "#000",
               border: "none", padding: "0.85rem 2rem",
@@ -321,7 +348,7 @@ export default function App() {
         </div>
 
         {/* Scroll hint */}
-        <div style={{
+        <div className="scroll-hint" style={{
           position: "absolute", right: "3rem", bottom: "2rem",
           display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem",
           fontFamily: "'Space Mono', monospace", fontSize: "0.6rem", color: COLORS.gray,
@@ -338,10 +365,10 @@ export default function App() {
       </section>
 
       {/* ── ABOUT ── */}
-      <section id="about" style={{ padding: "6rem 3rem" }}>
+      <section id="about" className="section-padding" style={{ padding: "6rem 3rem" }}>
         <SectionLabel number="00" text="About" />
         <FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center", maxWidth: 1100 }}>
+          <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center", maxWidth: 1100 }}>
             <div>
               <h2 style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", fontWeight: 800, lineHeight: 0.95, letterSpacing: "-0.02em", marginBottom: "2rem" }}>
                 Building<br /><span style={{ color: COLORS.cyan }}>systems</span><br />that scale.
@@ -356,7 +383,7 @@ export default function App() {
                 </p>
               ))}
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+            <div className="grid-stats" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
               {stats.map((s, i) => (
                 <StatCard key={i} num={s.num} label={s.label} />
               ))}
@@ -366,12 +393,12 @@ export default function App() {
       </section>
 
       {/* ── EXPERIENCE ── */}
-      <section id="experience" style={{ padding: "6rem 3rem", background: COLORS.bg2 }}>
+      <section id="experience" className="section-padding" style={{ padding: "6rem 3rem", background: COLORS.bg2 }}>
         <SectionLabel number="01" text="Experience" />
         <FadeIn>
           <div style={{ maxWidth: 860 }}>
             {experience.map((exp, i) => (
-              <div key={i} style={{
+              <div key={i} className="grid-experience" style={{
                 display: "grid", gridTemplateColumns: "190px 1fr",
                 gap: "3rem", padding: "2.5rem 0",
                 borderTop: `1px solid ${COLORS.border}`,
@@ -402,10 +429,10 @@ export default function App() {
       </section>
 
       {/* ── PROJECTS ── */}
-      <section id="projects" style={{ padding: "6rem 3rem" }}>
+      <section id="projects" className="section-padding" style={{ padding: "6rem 3rem" }}>
         <SectionLabel number="02" text="Projects" />
         <FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5px", maxWidth: 1100, background: COLORS.cyanBorder, border: `1px solid ${COLORS.cyanBorder}` }}>
+          <div className="grid-projects" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5px", maxWidth: 1100, background: COLORS.cyanBorder, border: `1px solid ${COLORS.cyanBorder}` }}>
             {projects.map((p, i) => (
               <ProjectCard key={i} project={p} />
             ))}
@@ -436,7 +463,7 @@ export default function App() {
       </section>
 
       {/* ── SKILLS ── */}
-      <section id="skills" style={{ padding: "6rem 3rem", background: COLORS.bg2 }}>
+      <section id="skills" className="section-padding" style={{ padding: "6rem 3rem", background: COLORS.bg2 }}>
         <SectionLabel number="03" text="Tech Stack" />
         <FadeIn>
           <div style={{ maxWidth: 1100 }}>
@@ -462,10 +489,10 @@ export default function App() {
       </section>
 
       {/* ── RESUME ── */}
-      <section id="resume" style={{ padding: "6rem 3rem" }}>
+      <section id="resume" className="section-padding" style={{ padding: "6rem 3rem" }}>
         <SectionLabel number="04" text="Resume" />
         <FadeIn>
-          <div style={{ maxWidth: 1100, display: "flex", justifyContent: "space-between", alignItems: "center", padding: "3rem", background: COLORS.bg2, border: `1px solid ${COLORS.border}`, flexWrap: "wrap", gap: "2rem" }}>
+          <div className="resume-box" style={{ maxWidth: 1100, display: "flex", justifyContent: "space-between", alignItems: "center", padding: "3rem", background: COLORS.bg2, border: `1px solid ${COLORS.border}`, flexWrap: "wrap", gap: "2rem" }}>
             <div>
               <h3 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "0.5rem", color: COLORS.white }}>Full Resume</h3>
               <p style={{ fontFamily: "'Space Mono', monospace", fontSize: "0.8rem", color: COLORS.gray }}>Get a detailed overview of my experience, skills, and education.</p>
@@ -489,10 +516,10 @@ export default function App() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section id="contact" style={{ padding: "6rem 3rem" }}>
+      <section id="contact" className="section-padding" style={{ padding: "6rem 3rem" }}>
         <SectionLabel number="05" text="Contact" />
         <FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center", maxWidth: 1100 }}>
+          <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center", maxWidth: 1100 }}>
             <div>
               <div style={{ fontSize: "clamp(3rem, 8vw, 5.5rem)", fontWeight: 800, lineHeight: 0.9, letterSpacing: "-0.03em" }}>
                 <div>Let's</div>
@@ -520,9 +547,9 @@ export default function App() {
                   }
                 </div>
               ))}
-              <div style={{ display: "flex", gap: "0.8rem", marginTop: "0.5rem" }}>
+              <div className="contact-buttons" style={{ display: "flex", gap: "0.8rem", marginTop: "0.5rem" }}>
                 {[
-                  { label: "LinkedIn", href: "https://linkedin.com/in/pranav-dwivedi" },
+                  { label: "LinkedIn", href: "https://www.linkedin.com/in/pranav-dwivedi-b08312221/" },
                   { label: "GitHub", href: "https://github.com/pranavdwivedii" },
                 ].map((s) => (
                   <a key={s.label} href={s.href} target="_blank" rel="noreferrer" style={{
@@ -784,7 +811,7 @@ function HeroTerminal() {
         .term-body::-webkit-scrollbar-thumb { background: rgba(6,182,212,0.2); border-radius:2px; }
       `}</style>
 
-      <div style={{
+      <div className="hero-terminal-container" style={{
         position: "absolute",
         right: "5%",
         top: "50%",
