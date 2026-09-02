@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,9 +7,10 @@
 <meta name="description" content="Pranav Dwivedi builds high-throughput backend platforms, distributed microservices, and applied AI systems. Certified in Django, Python, AI/ML, and Version Control."/>
 <meta property="og:title" content="Pranav Dwivedi — Systems &amp; Certifications"/>
 <meta property="og:description" content="Production backend systems, Meta-certified engineering, and applied AI architecture."/>
-<meta name="theme-color" content="#f7f7f5"/>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<link rel="alternate icon" type="image/png" href="/favicon.svg"/>
+<meta name="theme-color" content="#09090b"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2"/>
+<link rel="apple-touch-icon" href="/favicon.svg?v=2"/>
+<link rel="alternate icon" type="image/png" href="/favicon.png?v=2"/>
 
 <!-- GOOGLE FONTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -1362,10 +1363,10 @@ footer {
     </div>
 
     <div class="nav-actions">
-      <!-- Day / Night Mode Switcher Button -->
-      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Night Mode">
-        <span id="themeIcon">🌙</span>
-        <span id="themeText">Night</span>
+      <!-- Day / Night Mode Switcher Button (Night by default) -->
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Day / Night Mode">
+        <span id="themeIcon">☀️</span>
+        <span id="themeText">Day</span>
       </button>
 
       <a class="nav-cta" href="https://linkedin.com/in/pranav-dwivedi-b08312221" target="_blank" rel="noopener">
@@ -2182,8 +2183,8 @@ const themeIcon = document.getElementById('themeIcon');
 const themeText = document.getElementById('themeText');
 const rootHtml = document.documentElement;
 
-// Check saved theme or default to light
-const savedTheme = localStorage.getItem('pd_theme') || 'light';
+// Check saved theme or default to dark (Night mode)
+const savedTheme = localStorage.getItem('pd_theme') || 'dark';
 setTheme(savedTheme);
 
 function setTheme(theme) {
