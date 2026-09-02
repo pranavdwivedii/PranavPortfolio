@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.20" />
+      <stop offset="60%" stop-color="#080d1a" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="headGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="rimLight" x1="37.6%" y1="0%" x2="62.4%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#06b6d4" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.1" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow Behind Head -->
+  <circle cx="400" cy="460" r="320" fill="url(#bgGlow)" />
+  
+  <!-- Geometric Aura Rings -->
+  <ellipse cx="400" cy="500" rx="266.2" ry="70" fill="none" stroke="#06b6d4" stroke-opacity="0.15" stroke-dasharray="8 6" transform="rotate(-12 400 500)" />
+  <ellipse cx="400" cy="380" rx="215.4" ry="55" fill="none" stroke="#38bdf8" stroke-opacity="0.12" stroke-dasharray="4 8" transform="rotate(8 400 380)" />
+
+  <!-- Shoulders / Torso -->
+  <path d="M 180 880 Q 280 680, 340.8155948031232 620 L 480.8155948031232 620 Q 520 680, 620 880 Z" fill="#0b1120" stroke="rgba(6,182,212,0.3)" stroke-width="1.5" />
+  <path d="M 360.8155948031232 620 L 390.8155948031232 780 L 430.8155948031232 780 L 460.8155948031232 620 Z" fill="#0f172a" stroke="rgba(56,189,248,0.2)" />
+  
+  <!-- Neck -->
+  <path d="M 365.8155948031232 490 L 355.8155948031232 630 L 465.8155948031232 630 L 455.8155948031232 490 Z" fill="#0d1527" stroke="rgba(6,182,212,0.4)" stroke-width="1.5" />
+  
+  <!-- Head Base / Silhouette -->
+  <ellipse cx="410.8" cy="480.0" rx="115.4" ry="160" fill="url(#headGrad)" stroke="url(#rimLight)" stroke-width="2.5" />
+  
+  <!-- Jawline / Facial Plane Shading -->
+  <path d="M 491.7 480 Q 448.9 600.0, 423.2 630.0 Q 372.8 600.0, 330.0 480 Z" 
+        fill="#0f1b33" fill-opacity="0.75" stroke="#06b6d4" stroke-opacity="0.35" stroke-width="1.2" />
+
+  <!-- Ear / Headset (perspective shifting) -->
+  <g transform="translate(503.0, 460.0)">
+    <circle cx="0" cy="0" r="18.2" fill="#030712" stroke="#38bdf8" stroke-width="2" />
+    <circle cx="0" cy="0" r="12" fill="#06b6d4" fill-opacity="0.3" />
+    <path d="M -5 -30 L -5 30" stroke="#06b6d4" stroke-width="2" opacity="0.6" />
+  </g>
+
+  <!-- Nose Bridge & Contour -->
+  <path d="M 417.0 450.0 L 432.4 490.0 L 418.5 502.0" 
+        fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Eyes / Cyber Visor Line -->
+  <path d="M 475.7 440.0 Q 410.8 445.0, 352.1 440.0" 
+        fill="none" stroke="#06b6d4" stroke-width="3" filter="url(#glow)" />
+  <circle cx="459.8" cy="440.0" r="4" fill="#38bdf8" filter="url(#glow)" />
+  <circle cx="374.2" cy="440.0" r="4" fill="#38bdf8" filter="url(#glow)" />
+
+  <!-- Forehead / Hair Matrix Lines -->
+  <path d="M 330.8 400.0 Q 410.8 340.0, 490.8 400.0" 
+        fill="none" stroke="rgba(6,182,212,0.4)" stroke-width="1.5" stroke-dasharray="6 4" />
+  <path d="M 340.8 370.0 Q 410.8 315.0, 480.8 370.0" 
+        fill="none" stroke="rgba(56,189,248,0.3)" stroke-width="1.2" />
+
+  <!-- Dynamic Angle / HUD Coordinate Callouts -->
+  <text x="32" y="60" fill="#06b6d4" font-family="monospace" font-size="14" letter-spacing="2">ROTATION: 162° // FRAME 060/060</text>
+  <text x="32" y="84" fill="#5a6480" font-family="monospace" font-size="11" letter-spacing="1">PERSPECTIVE: 3/4 VIEW</text>
+  
+  <!-- Subtle Crosshairs -->
+  <line x1="395.8155948031232" y1="480" x2="425.8155948031232" y2="480" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.3" />
+  <line x1="410.8155948031232" y1="465" x2="410.8155948031232" y2="495" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.3" />
+
+  <!-- Frame Border Aesthetic -->
+  <path d="M 20 40 L 20 20 L 40 20" fill="none" stroke="#06b6d4" stroke-width="1.5" />
+  <path d="M 780 40 L 780 20 L 760 20" fill="none" stroke="#06b6d4" stroke-width="1.5" />
+  <path d="M 20 960 L 20 980 L 40 980" fill="none" stroke="#06b6d4" stroke-width="1.5" />
+  <path d="M 780 960 L 780 980 L 760 980" fill="none" stroke="#06b6d4" stroke-width="1.5" />
+</svg>

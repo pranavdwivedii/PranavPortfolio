@@ -1,16 +1,2301 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <title>pranav-portfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pranav Dwivedi — Full Stack AI Engineer &amp; Systems Architect</title>
+<meta name="description" content="Pranav Dwivedi builds high-throughput backend platforms, distributed microservices, and applied AI systems. Certified in Django, Python, AI/ML, and Version Control."/>
+<meta property="og:title" content="Pranav Dwivedi — Systems &amp; Certifications"/>
+<meta property="og:description" content="Production backend systems, Meta-certified engineering, and applied AI architecture."/>
+<meta name="theme-color" content="#f7f7f5"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="alternate icon" type="image/png" href="/favicon.svg"/>
+
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+
+<style>
+/* ══════════════════════ DUAL THEME SYSTEM (LIGHT BY DEFAULT + NIGHT SWITCHER) ══════════════════════ */
+:root,
+html[data-theme="light"] {
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-cert: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+
+  --bg: #f7f7f5;
+  --bg-subtle: #eeeeea;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f3f3f0;
+  --bg-nav: rgba(247, 247, 245, 0.88);
+
+  --text: #111114;
+  --text-muted: #4e4d47;
+  --text-dim: #84837c;
+
+  --border: rgba(17, 17, 20, 0.08);
+  --border-strong: rgba(17, 17, 20, 0.16);
+  --border-focus: rgba(37, 99, 235, 0.4);
+
+  --accent-standout: #2563eb;
+  --accent-standout-subtle: rgba(37, 99, 235, 0.08);
+  --accent-standout-border: rgba(37, 99, 235, 0.3);
+
+  --accent-badge: #111114;
+  --accent-badge-text: #ffffff;
+
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --card-shadow-hover: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --max: 1320px;
+}
+
+html[data-theme="dark"] {
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-cert: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+
+  --bg: #0b0b0d;
+  --bg-subtle: #141418;
+  --bg-card: #131317;
+  --bg-card-hover: #191920;
+  --bg-nav: rgba(11, 11, 13, 0.88);
+
+  --text: #f5f5f3;
+  --text-muted: #8e8d89;
+  --text-dim: #555450;
+
+  --border: rgba(245, 245, 243, 0.09);
+  --border-strong: rgba(245, 245, 243, 0.18);
+  --border-focus: rgba(96, 165, 250, 0.4);
+
+  --accent-standout: #60a5fa;
+  --accent-standout-subtle: rgba(96, 165, 250, 0.12);
+  --accent-standout-border: rgba(96, 165, 250, 0.3);
+
+  --accent-badge: #f5f5f3;
+  --accent-badge-text: #0b0b0d;
+
+  --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  --card-shadow-hover: 0 30px 70px rgba(0, 0, 0, 0.9);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--text);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--text);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 44px;
+}
+
+/* Subtle Film Grain */
+.noise-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.024;
+  pointer-events: none;
+  z-index: 9999;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ══════════════════════ NAVIGATION ══════════════════════ */
+#nav {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: var(--bg-nav);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s var(--ease);
+}
+
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 18px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--text);
+  transition: width 0.25s var(--ease);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Theme Toggle Button (Day / Night) */
+.theme-toggle-btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  padding: 7px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--text);
+}
+
+.nav-cta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-badge-text);
+  background: var(--accent-badge);
+  border: 1px solid var(--accent-badge);
+  padding: 8px 18px;
+  border-radius: 2px;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-cta:hover {
+  opacity: 0.85;
+}
+
+.nav-burger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* Mobile Menu */
+#mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  padding: 30px 32px;
+  transform: translateY(-100%);
+  transition: transform 0.4s var(--ease);
+}
+
+#mobile-menu.open {
+  transform: translateY(0);
+}
+
+.mm-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.mm-close {
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.mm-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mm-links a {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  text-transform: uppercase;
+}
+
+.mm-links a:hover {
+  color: var(--text);
+}
+
+/* ══════════════════════ HERO SECTION ══════════════════════ */
+#hero {
+  padding: 100px 0 80px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-split-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 56px;
+}
+
+.hero-tagline {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-tagline::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--text-muted);
+}
+
+.hero-giant-title {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 6.2vw, 86px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.96;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.hero-giant-title em {
+  font-style: normal;
+  color: var(--text-dim);
+}
+
+.hero-sub-statement {
+  font-family: var(--font-sans);
+  font-size: clamp(17px, 1.9vw, 22px);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 680px;
+}
+
+.hero-sub-statement strong {
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 1px solid var(--border-strong);
+}
+
+/* Hero Right Side Black & White Dynamic Changing Frame */
+.hero-bw-frame-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-bw-frame {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 3.4 / 4;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  background: #000000;
+  box-shadow: var(--card-shadow);
+  cursor: pointer;
+  transition: transform 0.4s var(--ease), border-color 0.3s, box-shadow 0.4s;
+}
+
+.hero-bw-frame:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-focus);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.hero-bw-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.18) brightness(0.92);
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 0.7s ease-in-out, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pos-quadrant { object-position: center center !important; }
+.pos-street   { object-position: center 35% !important; }
+.pos-art      { object-position: center 58% !important; }
+.pos-mountain { object-position: 75% 45% !important; }
+.pos-cafe     { object-position: 82% 32% !important; }
+.pos-brick    { object-position: 48% 22% !important; }
+
+.hero-bw-img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero-bw-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 40%, rgba(0,0,0,0.75) 100%);
+}
+
+.hero-bw-tag-top {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 12px;
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+.pulse-rec-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: rec-blink 1.8s infinite;
+}
+
+@keyframes rec-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hero-bw-tag-bottom {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d1d1cd;
+  z-index: 10;
+}
+
+.hero-details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.hero-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.meta-k {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+.meta-v {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ══════════════════════ SECTION UNIVERSAL UTILITIES ══════════════════════ */
+.sec-title-tag {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-standout);
+  margin-bottom: 20px;
+}
+
+.sec-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.2vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  color: var(--text);
+}
+
+/* ══════════════════════ CERTIFICATES SECTION (HEAVILY EMPHASIZED) ══════════════════════ */
+.sec-certs {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.certs-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.cert-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-focus);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.cert-top-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cert-issuer-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+  color: #ffffff;
+}
+
+.badge-meta { background: #1877f2 !important; }
+.badge-nielit { background: #ea580c !important; }
+.badge-linkedin { background: #0a66c2 !important; }
+.badge-cambridge { background: #111114 !important; }
+html[data-theme="dark"] .badge-cambridge { background: #222228 !important; }
+
+.cert-title {
+  font-family: var(--font-cert);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-top: 14px;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.cert-cred-id {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.cert-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cert-skill-chip {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.cert-verify-btn {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-standout);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid var(--accent-standout-border);
+  padding-bottom: 4px;
+  width: fit-content;
+  white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.cert-verify-btn:hover {
+  border-color: var(--accent-standout);
+}
+
+/* ══════════════════════ SELECTED WORKS & WORK-ORIENTED ENGINEERING ══════════════════════ */
+.sec-works {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.works-list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.work-row {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.work-row.reverse {
+  grid-template-columns: 1fr 1.25fr;
+}
+
+.work-row.reverse .work-visual-box {
+  order: 2;
+}
+
+.work-visual-box {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--card-shadow);
+  display: block;
+  line-height: 0;
+}
+
+.work-visual-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  transition: transform 0.6s var(--ease);
+}
+
+.work-visual-box:hover img {
+  transform: scale(1.02);
+}
+
+.work-content-box {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.work-tag-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag-pill {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.work-name {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.05;
+}
+
+.work-desc {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.work-desc strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.work-metrics-badge-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.metric-highlight {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent-standout);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.metric-highlight span.label {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.work-cta-btn {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent-badge-text);
+  background: var(--accent-badge);
+  border: 1px solid var(--accent-badge);
+  padding: 10px 22px;
+  border-radius: 2px;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.work-cta-btn:hover {
+  opacity: 0.85;
+}
+
+/* ══════════════════════ IMPACT BENCHMARKS ══════════════════════ */
+.sec-impact {
+  padding: 90px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.impact-cell {
+  padding: 38px 24px;
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.impact-cell:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.impact-big-stat {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 5.2vw, 70px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--accent-standout);
+}
+
+.impact-sub-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════ OUR PLAYBOOK ══════════════════════ */
+.sec-playbook {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.playbook-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+.playbook-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.playbook-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent-standout);
+  font-weight: 700;
+}
+
+.playbook-title {
+  font-family: var(--font-cert);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.playbook-body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* ══════════════════════ CAPABILITIES & TIMELINE ══════════════════════ */
+.sec-capabilities {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cap-table {
+  width: 100%;
+  border-top: 1px solid var(--border);
+}
+
+.cap-row {
+  display: grid;
+  grid-template-columns: 240px 1.4fr 1fr;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+
+.cap-col-title {
+  font-family: var(--font-cert);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.cap-col-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.cap-col-meta {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-dim);
+  text-align: right;
+}
+
+/* Career Roadmap & Milestone Details */
+.career-map-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.career-milestone,
+.edu-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.career-header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.career-role {
+  font-family: var(--font-cert);
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.career-date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-standout);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.career-company {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-dim);
+}
+
+.career-detail {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.career-detail strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.career-skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+/* Expertise Matrix Grid */
+.expertise-matrix-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.expertise-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.expertise-k {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.expertise-v {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+@media (max-width: 800px) {
+  .expertise-matrix-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* ══════════════════════ VISUALS & PHOTOGRAPHY (END SECTION) ══════════════════════ */
+.sec-editorial {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.editorial-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.vsco-capture-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+
+.vsco-capture-card {
+  display: block;
+  background: transparent;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s;
+}
+
+.vsco-capture-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
+}
+
+.vsco-capture-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 4px;
+}
+
+/* ══════════════════════ HEAVY ROTATION / CURATED SOUNDTRACK ══════════════════════ */
+.sec-rotation {
+  padding: 80px 0 100px;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.rotation-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 36px;
+}
+
+.rotation-live-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-standout);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--card-shadow);
+}
+
+.pulse-audio-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-standout);
+  box-shadow: 0 0 10px var(--accent-standout);
+  animation: pulseRec 1.6s infinite ease-in-out;
+}
+
+.album-marquee-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  padding: 10px 0;
+}
+
+.album-marquee-track {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  animation: albumMarquee 38s linear infinite;
+}
+
+.album-marquee-container:hover .album-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes albumMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.album-card {
+  flex-shrink: 0;
+  width: 175px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s var(--ease);
+  cursor: pointer;
+}
+
+.album-card:hover {
+  transform: translateY(-6px);
+}
+
+.album-card:hover .album-title {
+  color: var(--accent-standout);
+}
+
+.album-art-box {
+  position: relative;
+  width: 175px;
+  height: 175px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #111114;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+}
+
+.album-art-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+
+.album-card:hover .album-art-box img {
+  transform: scale(1.05);
+}
+
+.album-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.album-title {
+  font-family: var(--font-cert);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.album-artist {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ══════════════════════ CONTACT CTA ══════════════════════ */
+.sec-contact {
+  padding: 110px 0;
+}
+
+.contact-giant-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 6vw, 80px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.contact-deck-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-top: 50px;
+}
+
+.contact-deck-cell {
+  padding: 32px 24px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.contact-deck-cell:last-child {
+  border-right: none;
+}
+
+.contact-deck-cell:hover {
+  background: var(--bg-card);
+}
+
+.cd-k {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.cd-v {
+  font-size: 14.5px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ══════════════════════ FOOTER ══════════════════════ */
+footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+}
+
+.foot-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.foot-brand {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.foot-links {
+  display: flex;
+  gap: 24px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.foot-links a:hover {
+  color: var(--text);
+}
+
+/* ══════════════════════ SCROLL REVEAL ══════════════════════ */
+.rv {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.rv.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ══════════════════════ RESPONSIVE ══════════════════════ */
+@media (max-width: 1080px) {
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  .playbook-grid { grid-template-columns: 1fr 1fr; }
+  .work-row, .work-row.reverse { grid-template-columns: 1fr; gap: 32px; }
+  .work-row.reverse .work-visual-box { order: 1; }
+  .hero-details-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .impact-grid { grid-template-columns: 1fr 1fr; }
+  .impact-cell:nth-child(2n+1) { border-left: none; padding-left: 0; }
+  .impact-cell:nth-child(n+3) { border-top: 1px solid var(--border); }
+  .cap-row { grid-template-columns: 1fr; gap: 8px; }
+  .cap-col-meta { text-align: left; margin-top: 4px; }
+}
+
+@media (max-width: 800px) {
+  .wrap { padding: 0 24px; }
+  .nav-inner { padding: 16px 24px; }
+  .nav-links, .nav-cta { display: none; }
+  .nav-burger { display: block; }
+  .hero-split-grid { grid-template-columns: 1fr; gap: 40px; }
+  .certs-grid { grid-template-columns: 1fr; }
+  .playbook-grid { grid-template-columns: 1fr; }
+  .vsco-capture-grid { grid-template-columns: 1fr; gap: 20px; }
+  .contact-deck-grid { grid-template-columns: 1fr 1fr; }
+  .contact-deck-cell:nth-child(2n) { border-right: none; }
+  .contact-deck-cell:nth-child(n+3) { border-top: 1px solid var(--border); }
+}
+
+@media (max-width: 540px) {
+  .contact-deck-grid { grid-template-columns: 1fr; }
+  .contact-deck-cell { border-right: none !important; border-top: 1px solid var(--border); }
+  .contact-deck-cell:first-child { border-top: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="noise-bg"></div>
+
+<!-- TOP NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#hero">PD</a>
+
+    <div class="nav-links" id="navLinks">
+      <a class="nav-link" href="#credentials">Certifications</a>
+      <a class="nav-link" href="#works">Engineering</a>
+      <a class="nav-link" href="#playbook">Playbook</a>
+      <a class="nav-link" href="#impact">Impact</a>
+      <a class="nav-link" href="#capabilities">Capabilities</a>
+      <a class="nav-link" href="#editorial">Off-Duty</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <!-- Day / Night Mode Switcher Button -->
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Night Mode">
+        <span id="themeIcon">🌙</span>
+        <span id="themeText">Night</span>
+      </button>
+
+      <a class="nav-cta" href="https://linkedin.com/in/pranav-dwivedi-b08312221" target="_blank" rel="noopener">
+        <span>Resume</span>
+        <span>↗</span>
+      </a>
+
+      <button class="nav-burger" id="burgerBtn" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu">
+  <div class="mm-top">
+    <span class="nav-brand">PD</span>
+    <button class="mm-close" id="mmClose" aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+  </div>
+  <div class="mm-links">
+    <a href="#credentials">Certifications</a>
+    <a href="#works">Engineering</a>
+    <a href="#playbook">Playbook</a>
+    <a href="#impact">Impact</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#editorial">Off-Duty</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<!-- ══════════════════════ HERO (STATEMENT & ROTATING PORTRAITS) ══════════════════════ -->
+<header id="hero" class="wrap">
+  <div class="hero-split-grid">
+    
+    <!-- Left Column: Headline & Statements -->
+    <div class="hero-left-col">
+      <div class="hero-tagline rv"><span style="color:var(--accent-standout); font-weight:700;">[ PYTHON · DJANGO · APPLIED AI ]</span> FULL STACK SYSTEMS ARCHITECT</div>
+      
+      <h1 class="hero-giant-title rv">
+        PRANAV<br/>
+        <em>DWIVEDI</em>
+      </h1>
+
+      <p class="hero-sub-statement rv">
+        I engineer high-throughput <strong>Python backend systems (Django REST &amp; FastAPI), distributed microservices, and applied-AI architectures</strong> around a singular standard of production reliability.
+      </p>
+    </div>
+
+    <!-- Right Column: Black & White Dynamic Changing Frame -->
+    <div class="hero-bw-frame-wrap rv" id="heroBwGallery" title="Click to cycle frame">
+      <div class="hero-bw-frame">
+        <img src="/assets/vsco/blue-quadrant.jpg" alt="Pranav Dwivedi 4-Angle Portrait" class="hero-bw-img pos-quadrant active" />
+        <img src="/assets/vsco/street-baggy.jpg" alt="Pranav Dwivedi Streetwear" class="hero-bw-img pos-street" />
+        <img src="/assets/vsco/art-gallery.jpg" alt="Pranav Dwivedi Art Gallery" class="hero-bw-img pos-art" />
+        <img src="/assets/vsco/mountain-goats.jpg" alt="Pranav Dwivedi Himalayas" class="hero-bw-img pos-mountain" />
+        <img src="/assets/photos/photo-2.jpg" alt="Pranav Dwivedi Cafe Atmosphere" class="hero-bw-img pos-cafe" />
+        <img src="/assets/photos/photo-3.jpg" alt="Pranav Dwivedi Sunglasses" class="hero-bw-img pos-brick" />
+
+        <div class="hero-bw-overlay"></div>
+        <div class="hero-bw-tag-top">
+          <span class="pulse-rec-dot"></span>
+          <span id="heroBwFrameIndex">FRAME 01 / 06</span>
+        </div>
+        <div class="hero-bw-tag-bottom">
+          <span>@PRANAVDW · 35MM MONO</span>
+          <span id="heroBwLocation">EDITORIAL 4-ANGLE</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Details Meta Row -->
+  <div class="hero-details-grid rv">
+    <div class="hero-meta-item">
+      <span class="meta-k">Current Role</span>
+      <span class="meta-v">Executive SDE @ Cyber Media</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="meta-k">Core Stack</span>
+      <span class="meta-v">Python · Django REST · FastAPI</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="meta-k">Applied AI</span>
+      <span class="meta-v">LangChain · RAG · Vector DBs</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="meta-k">Credentials</span>
+      <span class="meta-v"><a href="#credentials" style="text-decoration:underline;">Meta &amp; NIELIT Certified ↗</a></span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════ VERIFIED CERTIFICATIONS (PROMINENT EMPHASIS) ══════════════════════ -->
+<section class="sec-certs wrap" id="credentials">
+  <div class="certs-header-row rv">
+    <div>
+      <div class="sec-title-tag">VERIFIED CREDENTIALS &amp; SPECIALIZATIONS</div>
+      <h2 class="sec-h2">Certified Competence.</h2>
+    </div>
+    <a class="work-cta-btn" href="https://linkedin.com/in/pranav-dwivedi-b08312221" target="_blank" rel="noopener">
+      <span>LinkedIn Treasury ↗</span>
+    </a>
+  </div>
+
+  <div class="certs-grid">
+    
+    <!-- Cert 1: Meta Django -->
+    <div class="cert-card rv">
+      <div>
+        <div class="cert-top-meta">
+          <span class="cert-issuer-badge badge-meta">META</span>
+        </div>
+        <h3 class="cert-title">Django Web Framework</h3>
+        <div class="cert-cred-id">ID: BK9889VB6BGE · Coursera Specialization</div>
+        <div class="cert-skills-list">
+          <span class="cert-skill-chip">Django ORM</span>
+          <span class="cert-skill-chip">Class-Based Views</span>
+          <span class="cert-skill-chip">REST APIs</span>
+          <span class="cert-skill-chip">Model Serializers</span>
+          <span class="cert-skill-chip">Auth &amp; Security</span>
+        </div>
+      </div>
+      <a class="cert-verify-btn" href="https://www.coursera.org/account/accomplishments/records/BK9889VB6BGE" target="_blank" rel="noopener">
+        <span>Verify on Coursera</span>
+        <span>↗</span>
+      </a>
+    </div>
+
+    <!-- Cert 2: NIELIT AI & ML -->
+    <div class="cert-card rv">
+      <div>
+        <div class="cert-top-meta">
+          <span class="cert-issuer-badge badge-nielit">NIELIT (GOVT. OF INDIA)</span>
+        </div>
+        <h3 class="cert-title">Artificial Intelligence &amp; Machine Learning</h3>
+        <div class="cert-cred-id">ID: 1382499767 · Ministry of Electronics &amp; IT</div>
+        <div class="cert-skills-list">
+          <span class="cert-skill-chip">Applied AI/ML</span>
+          <span class="cert-skill-chip">Neural Networks</span>
+          <span class="cert-skill-chip">Deep Learning</span>
+          <span class="cert-skill-chip">NLP Pipelines</span>
+          <span class="cert-skill-chip">Pandas &amp; Scikit</span>
+        </div>
+      </div>
+      <a class="cert-verify-btn" href="https://www.linkedin.com/in/pranav-dwivedi-b08312221/overlay/Certifications/1382499767/treasury/?profileId=ACoAADfA2LgBcXEpTJUESg5mY_V4Pe_bibguDhc" target="_blank" rel="noopener">
+        <span>Verify Certificate</span>
+        <span>↗</span>
+      </a>
+    </div>
+
+    <!-- Cert 3: Meta Python -->
+    <div class="cert-card rv">
+      <div>
+        <div class="cert-top-meta">
+          <span class="cert-issuer-badge badge-meta">META</span>
+        </div>
+        <h3 class="cert-title">Programming in Python</h3>
+        <div class="cert-cred-id">ID: aa03be857c8ee15ff9f4e354f4e86c1f · Coursera</div>
+        <div class="cert-skills-list">
+          <span class="cert-skill-chip">Data Structures</span>
+          <span class="cert-skill-chip">OOP in Python</span>
+          <span class="cert-skill-chip">Algorithmic Efficiency</span>
+          <span class="cert-skill-chip">Unit Testing</span>
+          <span class="cert-skill-chip">Async Execution</span>
+        </div>
+      </div>
+      <a class="cert-verify-btn" href="https://coursera.org/share/aa03be857c8ee15ff9f4e354f4e86c1f" target="_blank" rel="noopener">
+        <span>Verify on Coursera</span>
+        <span>↗</span>
+      </a>
+    </div>
+
+    <!-- Cert 4: Meta Version Control -->
+    <div class="cert-card rv">
+      <div>
+        <div class="cert-top-meta">
+          <span class="cert-issuer-badge badge-meta">META</span>
+        </div>
+        <h3 class="cert-title">Version Control &amp; Git</h3>
+        <div class="cert-cred-id">ID: 494LKVRJUNTG · Coursera Specialization</div>
+        <div class="cert-skills-list">
+          <span class="cert-skill-chip">Git Workflows</span>
+          <span class="cert-skill-chip">Branching Models</span>
+          <span class="cert-skill-chip">CI/CD Pipelines</span>
+          <span class="cert-skill-chip">Bitbucket &amp; GitHub</span>
+        </div>
+      </div>
+      <a class="cert-verify-btn" href="https://www.coursera.org/account/accomplishments/records/494LKVRJUNTG" target="_blank" rel="noopener">
+        <span>Verify on Coursera</span>
+        <span>↗</span>
+      </a>
+    </div>
+
+    <!-- Cert 5: LinkedIn Computer Science -->
+    <div class="cert-card rv">
+      <div>
+        <div class="cert-top-meta">
+          <span class="cert-issuer-badge badge-linkedin">LINKEDIN LEARNING</span>
+        </div>
+        <h3 class="cert-title">CS Principles: Digital Information</h3>
+        <div class="cert-cred-id">ID: bb71d6ef4d8b8a5d8cc86b3fd5b8c248104be5754ed3822a064e0a1cc5a3367b</div>
+        <div class="cert-skills-list">
+          <span class="cert-skill-chip">Computer Architecture</span>
+          <span class="cert-skill-chip">Binary &amp; Hex Systems</span>
+          <span class="cert-skill-chip">Data Representation</span>
+          <span class="cert-skill-chip">Network Protocols</span>
+        </div>
+      </div>
+      <a class="cert-verify-btn" href="https://www.linkedin.com/learning/certificates/bb71d6ef4d8b8a5d8cc86b3fd5b8c248104be5754ed3822a064e0a1cc5a3367b/?u=88982986" target="_blank" rel="noopener">
+        <span>Verify on LinkedIn</span>
+        <span>↗</span>
+      </a>
+    </div>
+
+    <!-- Cert 6: Cambridge English -->
+    <div class="cert-card rv">
+      <div>
+        <div class="cert-top-meta">
+          <span class="cert-issuer-badge badge-cambridge">CAMBRIDGE INTL</span>
+        </div>
+        <h3 class="cert-title">Preliminary English Test (PET)</h3>
+        <div class="cert-cred-id">Cambridge English Language Assessment</div>
+        <div class="cert-skills-list">
+          <span class="cert-skill-chip">Technical Communication</span>
+          <span class="cert-skill-chip">International Collaboration</span>
+          <span class="cert-skill-chip">Documentation</span>
+          <span class="cert-skill-chip">Architecture RFCs</span>
+        </div>
+      </div>
+      <div class="cert-verify-btn" style="cursor:default; border-bottom:none; color:var(--text-dim);">
+        <span>Certified Proficiency</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════ WORK & PRODUCTION ENGINEERING ══════════════════════ -->
+<section class="sec-works wrap" id="works">
+  <div class="sec-title-tag rv">PRODUCTION ARCHITECTURES &amp; SYSTEMS</div>
+
+  <div class="works-list">
+    
+    <!-- Work 1: CMGalaxy -->
+    <div class="work-row rv">
+      <div class="work-visual-box">
+        <img src="/assets/projects/cmgalaxy.svg" alt="CMGalaxy Dashboard &amp; Lex AI Assistant" />
+      </div>
+      <div class="work-content-box">
+        <div class="work-tag-pills">
+          <span class="tag-pill">PYTHON 3.11</span>
+          <span class="tag-pill">DJANGO REST</span>
+          <span class="tag-pill">FASTAPI</span>
+          <span class="tag-pill">MONGODB AGGREGATIONS</span>
+          <span class="tag-pill">LANGCHAIN RAG</span>
+          <span class="tag-pill">AWS GRAFANA</span>
+        </div>
+        <h3 class="work-name">CMGalaxy</h3>
+        <p class="work-desc">
+          Centralized marketing intelligence platform consolidating analytics from <strong>13+ advertising networks</strong> (Google Ads, Meta Ads, LinkedIn, Amazon, Shopify) into a unified high-throughput Python data layer with real-time ROAS forecasting, automated reporting, and LangChain RAG conversational document search.
+        </p>
+
+        <div class="work-metrics-badge-row">
+          <div class="metric-highlight">-35% <span class="label">API Latency</span></div>
+          <div class="metric-highlight">13+ <span class="label">Ad Sources Unified</span></div>
+          <div class="metric-highlight">99.9% <span class="label">Uptime</span></div>
+        </div>
+
+        <div class="work-link-row">
+          <a class="work-cta-btn" href="https://www.cmgalaxy.com" target="_blank" rel="noopener">Visit Live Platform ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work 2: SmartPostAI -->
+    <div class="work-row reverse rv">
+      <div class="work-visual-box">
+        <img src="/assets/projects/smartpost.png" alt="SmartPostAI Content Intelligence Engine" />
+      </div>
+      <div class="work-content-box">
+        <div class="work-tag-pills">
+          <span class="tag-pill">PYTHON</span>
+          <span class="tag-pill">FASTAPI</span>
+          <span class="tag-pill">OPENAI API</span>
+          <span class="tag-pill">LANGCHAIN RAG</span>
+          <span class="tag-pill">ASYNCIO</span>
+          <span class="tag-pill">REDIS</span>
+        </div>
+        <h3 class="work-name">SmartPostAI</h3>
+        <p class="work-desc">
+          An autonomous asynchronous web content pipeline built with <strong>FastAPI and LangChain</strong>. Scrapes, parses, and cleans unstructured web articles, generating platform-formatted social media posts and scheduled multi-channel content campaigns with zero I/O blocking.
+        </p>
+
+        <div class="work-metrics-badge-row">
+          <div class="metric-highlight">Async <span class="label">Concurrency</span></div>
+          <div class="metric-highlight">LLM <span class="label">Chaining</span></div>
+          <div class="metric-highlight">Zero <span class="label">I/O Blocking</span></div>
+        </div>
+
+        <div class="work-link-row">
+          <a class="work-cta-btn" href="https://smartpost-ai.vercel.app/" target="_blank" rel="noopener">Visit Live App ↗</a>
+          <a class="work-cta-btn" href="https://github.com/pranavdwivedii/SmartPostAI" target="_blank" rel="noopener" style="background:transparent; color:var(--text); border-color:var(--border-strong);">Source Code ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work 3: Enterprise Content Engine -->
+    <div class="work-row rv">
+      <div class="work-visual-box">
+        <img src="/assets/projects/content-engine.svg" alt="Enterprise Content Engine Architecture (Java 17 / Spring Boot)" />
+      </div>
+      <div class="work-content-box">
+        <div class="work-tag-pills">
+          <span class="tag-pill">JAVA 17</span>
+          <span class="tag-pill">SPRING BOOT</span>
+          <span class="tag-pill">ORACLE DB</span>
+          <span class="tag-pill">SPRING DATA JPA</span>
+          <span class="tag-pill">HIBERNATE</span>
+          <span class="tag-pill">REST APIS</span>
+        </div>
+        <h3 class="work-name">Enterprise Content Engine</h3>
+        <p class="work-desc">
+          Engineered a <strong>Spring Boot-based backend system</strong> to aggregate, validate, and process high-volume enterprise content feeds. Established robust data persistence and complex relational entity mappings utilizing <strong>Hibernate and Oracle DB</strong>. Adopted a microservices-oriented architecture to maximize throughput and enable secure, concurrent data generation tasks.
+        </p>
+
+        <div class="work-metrics-badge-row">
+          <div class="metric-highlight">+40% <span class="label">Faster DB Retrieval</span></div>
+          <div class="metric-highlight" style="color:var(--text);">20+ <span class="label">APIs Refactored</span></div>
+          <div class="metric-highlight">JVM <span class="label">Optimized</span></div>
+        </div>
+
+        <div class="work-link-row">
+          <a class="work-cta-btn" href="https://github.com/pranavdwivedii/content-engine" target="_blank" rel="noopener">View Source on GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════ OUR PLAYBOOK (CONCISE & PYTHON-FOCUSED) ══════════════════════ -->
+<section class="sec-playbook wrap" id="playbook">
+  <div class="sec-title-tag rv">OUR PLAYBOOK / ENGINEERING ETHOS</div>
+
+  <div class="playbook-grid">
+    
+    <!-- 01 -->
+    <div class="playbook-card rv">
+      <span class="playbook-num">01</span>
+      <h3 class="playbook-title">Find the Bottleneck</h3>
+      <p class="playbook-body">
+        Profile Django ORM queries, database latency, and payload bloat to isolate the true architectural bottleneck first.
+      </p>
+    </div>
+
+    <!-- 02 -->
+    <div class="playbook-card rv">
+      <span class="playbook-num">02</span>
+      <h3 class="playbook-title">Think in Pipelines</h3>
+      <p class="playbook-body">
+        Decouple heavy compute with FastAPI AsyncIO, Celery task queues, and streaming endpoints for non-blocking execution.
+      </p>
+    </div>
+
+    <!-- 03 -->
+    <div class="playbook-card rv">
+      <span class="playbook-num">03</span>
+      <h3 class="playbook-title">Architect in Python &amp; Django</h3>
+      <p class="playbook-body">
+        Engineer modular Django REST backends with Class-Based Views, robust serializers, and multi-database routing.
+      </p>
+    </div>
+
+    <!-- 04 -->
+    <div class="playbook-card rv">
+      <span class="playbook-num">04</span>
+      <h3 class="playbook-title">Layer Applied AI</h3>
+      <p class="playbook-body">
+        Orchestrate LangChain, OpenAI APIs, and vector embeddings to deliver precise RAG semantic search over documents.
+      </p>
+    </div>
+
+    <!-- 05 -->
+    <div class="playbook-card rv">
+      <span class="playbook-num">05</span>
+      <h3 class="playbook-title">Prove in Production</h3>
+      <p class="playbook-body">
+        Validate every release with automated PyTest suites, AWS cloud deployments, and real-time Grafana telemetry.
+      </p>
+    </div>
+
+    <!-- 06 -->
+    <div class="playbook-card rv">
+      <span class="playbook-num">06</span>
+      <h3 class="playbook-title">Tell a Visual Story</h3>
+      <p class="playbook-body">
+        Apply the same discipline, composition, and precision from backend architecture to editorial photography.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════ PRODUCTION BENCHMARKS ══════════════════════ -->
+<section class="sec-impact wrap" id="impact">
+  <div class="sec-title-tag rv">PRODUCTION BENCHMARKS &amp; TELEMETRY</div>
+
+  <div class="impact-grid rv">
+    <div class="impact-cell">
+      <div class="impact-big-stat">-35%</div>
+      <div class="impact-sub-text">API latency reduction after FastAPI &amp; MongoDB redesign</div>
+    </div>
+    <div class="impact-cell">
+      <div class="impact-big-stat">+40%</div>
+      <div class="impact-sub-text">Faster data retrieval via Oracle DB materialized views</div>
+    </div>
+    <div class="impact-cell">
+      <div class="impact-big-stat" style="color: var(--text);">20+</div>
+      <div class="impact-sub-text">Legacy APIs refactored onto modular class-based views</div>
+    </div>
+    <div class="impact-cell">
+      <div class="impact-big-stat" style="color: var(--text);">13+</div>
+      <div class="impact-sub-text">Advertising networks unified into a single data layer</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ CAPABILITIES, CAREER MAP & ARSENAL ══════════════════════ -->
+<section class="sec-capabilities wrap" id="capabilities">
+  <div class="sec-title-tag rv">TRAJECTORY &amp; TECHNICAL ARSENAL</div>
+
+  <div class="cap-table rv">
+    
+    <!-- 01. EXPERIENCE (PROMINENT CAREER ROADMAP: INTERN -> EXECUTIVE) -->
+    <div class="cap-row">
+      <div class="cap-col-title">EXPERIENCE</div>
+      <div class="cap-col-desc">
+        <div class="career-map-block">
+          
+          <!-- Executive SDE -->
+          <div class="career-milestone">
+            <div class="career-header-line">
+              <span class="career-role">Executive — Software Development</span>
+              <span class="career-date">Jan 2025 – Present</span>
+            </div>
+            <div class="career-company">Cyber Media India Ltd. · Gurugram, India</div>
+            <p class="career-detail">
+              Promoted to Executive SDE leading core backend architecture for the flagship <strong>CMGalaxy</strong> platform. Architected unified multi-platform data aggregation pipelines across 13+ ad networks (Google, Meta, LinkedIn, Shopify), built LangChain RAG conversational document search over marketing data, refactored 20+ legacy endpoints to modular Django Class-Based Views, and achieved a 35% reduction in API response latency.
+            </p>
+            <div class="career-skills-tags">
+              <span class="tag-pill">Python 3.11</span>
+              <span class="tag-pill">Django REST Framework</span>
+              <span class="tag-pill">FastAPI</span>
+              <span class="tag-pill">LangChain RAG</span>
+              <span class="tag-pill">MongoDB Aggregations</span>
+              <span class="tag-pill">AWS Telemetry</span>
+            </div>
+          </div>
+
+          <!-- Intern SDE -->
+          <div class="career-milestone" style="margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--border);">
+            <div class="career-header-line">
+              <span class="career-role">Intern — Software Development</span>
+              <span class="career-date">Jul 2024 – Dec 2024</span>
+            </div>
+            <div class="career-company">Cyber Media India Ltd. · Gurugram, India</div>
+            <p class="career-detail">
+              Engineered data ingestion pipelines, automated schema validation workflows, developed asynchronous web scrapers using BeautifulSoup and FastAPI, and integrated Redis caching layers to accelerate high-frequency analytical queries.
+            </p>
+            <div class="career-skills-tags">
+              <span class="tag-pill">Django</span>
+              <span class="tag-pill">REST APIs</span>
+              <span class="tag-pill">Redis Caching</span>
+              <span class="tag-pill">Celery</span>
+              <span class="tag-pill">Git / CI/CD</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="cap-col-meta">Cyber Media India</div>
+    </div>
+
+    <!-- 02. EDUCATION -->
+    <div class="cap-row">
+      <div class="cap-col-title">EDUCATION</div>
+      <div class="cap-col-desc">
+        <div class="edu-block">
+          <div class="career-header-line">
+            <span class="career-role">B.Tech in Computer Science &amp; Engineering</span>
+            <span class="career-date">2021 – 2025</span>
+          </div>
+          <div class="career-company">I.K. Gujral Punjab Technical University</div>
+          <p class="career-detail">
+            Acquired strong foundational and applied competence in <strong>Artificial Intelligence, Neural Networks, Advanced Data Structures &amp; Algorithms, Distributed Systems, and Database Management Architecture</strong>.
+          </p>
+          <div class="career-skills-tags">
+            <span class="tag-pill">Applied AI &amp; Machine Learning</span>
+            <span class="tag-pill">Data Structures &amp; Algorithms</span>
+            <span class="tag-pill">Database Architecture</span>
+            <span class="tag-pill">Object-Oriented Design</span>
+          </div>
+        </div>
+      </div>
+      <div class="cap-col-meta">B.Tech CSE</div>
+    </div>
+
+    <!-- 03. TECHNICAL EXPERTISE -->
+    <div class="cap-row">
+      <div class="cap-col-title">EXPERTISE</div>
+      <div class="cap-col-desc">
+        <div class="expertise-matrix-grid">
+          
+          <div class="expertise-item">
+            <div class="expertise-k">PYTHON &amp; BACKEND ENGINES</div>
+            <div class="expertise-v">Python 3.11+, Django REST Framework (DRF), FastAPI, Asynchronous IO, Class-Based Views (CBVs), Microservices Architecture, PyTest, RESTful API Design.</div>
+          </div>
+
+          <div class="expertise-item">
+            <div class="expertise-k">APPLIED AI &amp; LLM PIPELINES</div>
+            <div class="expertise-v">LangChain, OpenAI API, Retrieval-Augmented Generation (RAG), Vector Embeddings, HuggingFace Transformers, Semantic Search, Document Ingestion.</div>
+          </div>
+
+          <div class="expertise-item">
+            <div class="expertise-k">DATABASE &amp; DATA SYSTEMS</div>
+            <div class="expertise-v">MongoDB (Aggregations &amp; Sharding), Oracle DB (Materialized Views &amp; Schema Design), Redis In-Memory Cache, Celery Distributed Task Queues.</div>
+          </div>
+
+          <div class="expertise-item">
+            <div class="expertise-k">CLOUD, DEVOPS &amp; TOOLS</div>
+            <div class="expertise-v">AWS (EC2, S3, RDS), Docker Containers, Git Version Control, Bitbucket CI/CD, Grafana Observability, Linux System Architecture.</div>
+          </div>
+
+        </div>
+      </div>
+      <div class="cap-col-meta">Full Stack AI</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════ VISUALS & PHOTOGRAPHY (END SECTION) ══════════════════════ -->
+<section class="sec-editorial wrap" id="editorial">
+  <div class="editorial-header-row rv">
+    <div>
+      <div class="sec-title-tag" style="margin-bottom:12px;">VSCO JOURNAL &amp; PHOTOGRAPHY</div>
+      <h2 class="sec-h2">Behind the Lens.</h2>
+    </div>
+    <a class="work-cta-btn" href="https://vsco.co/pranavdw/gallery" target="_blank" rel="noopener">
+      <span>VSCO Profile (@pranavdw) ↗</span>
+    </a>
+  </div>
+
+  <div class="vsco-capture-grid">
+    
+    <!-- Capture 1: Victory Bombay Coffee & Co -->
+    <a class="vsco-capture-card rv" href="https://vsco.co/pranavdw/gallery" target="_blank" rel="noopener">
+      <img src="/assets/photos/bombay-coffee.png" alt="Victory Bombay Coffee &amp; Co, Panchkula — VSCO Capture" />
+    </a>
+
+    <!-- Capture 2: Mountain Waterfall Cascade -->
+    <a class="vsco-capture-card rv" href="https://vsco.co/pranavdw/gallery" target="_blank" rel="noopener">
+      <img src="/assets/photos/waterfall.png" alt="Mountain Waterfall Cascade — VSCO Capture" />
+    </a>
+
+    <!-- Capture 3: Faqir-Chand Book Store, Khan Market -->
+    <a class="vsco-capture-card rv" href="https://vsco.co/pranavdw/gallery" target="_blank" rel="noopener">
+      <img src="/assets/photos/faqir-chand.png" alt="Faqir-Chand Book Store, Khan Market, Delhi — VSCO Capture" />
+    </a>
+
+    <!-- Capture 4: Pauri Garhwal Hillside Sunset -->
+    <a class="vsco-capture-card rv" href="https://vsco.co/pranavdw/gallery" target="_blank" rel="noopener">
+      <img src="/assets/photos/pauri-garhwal.png" alt="Pauri Garhwal Sunset Ridge — VSCO Capture" />
+    </a>
+
+  </div>
+</section>
+
+<!-- ══════════════════════ OFF-DUTY / HEAVY ROTATION (SOUNDTRACK MARQUEE) ══════════════════════ -->
+<section class="sec-rotation wrap" id="rotation">
+  <div class="rotation-header-row rv">
+    <div>
+      <div class="sec-title-tag" style="margin-bottom:12px;">OFF-DUTY / HEAVY ROTATION</div>
+      <h2 class="sec-h2">In the Headphones.</h2>
+    </div>
+    <div class="rotation-live-pill">
+      <span class="pulse-audio-dot"></span>
+      <span>ON REPEAT · FREQUENCIES</span>
+    </div>
+  </div>
+
+  <div class="album-marquee-container rv">
+    <div class="album-marquee-track">
+      
+      <!-- Set 1 -->
+      <a class="album-card" href="https://open.spotify.com/album/56ojNOZ9rz0PnhSaHHTL7y" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-1.jpg" alt="P-Pop Culture — Karan Aujla" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">P-Pop Culture</div>
+          <div class="album-artist">Karan Aujla</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/album/3BGU0BqGwBkYDHpfCWFm7I" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-2.jpg" alt="Making Memories — Karan Aujla · Ikky" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">Making Memories</div>
+          <div class="album-artist">Karan Aujla · Ikky</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/search/Rumour%20Has%20It%20Sukha" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-3.jpg" alt="Rumour Has It — Sukha" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">Rumour Has It</div>
+          <div class="album-artist">Sukha</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/track/1gfrGJck5AUyqxtNb0M0QI" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-4.jpg" alt="Gulon Se — Anshul Rajput" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">Gulon Se</div>
+          <div class="album-artist">Anshul Rajput · Aarka</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/album/5zi7WsKlIiUXv09tbGLKsM" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-5.jpg" alt="IGOR — Tyler, The Creator" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">IGOR</div>
+          <div class="album-artist">Tyler, The Creator</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/album/0hvT3yIEysuuvkK73vgdcW" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-6.jpg" alt="GNX — Kendrick Lamar" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">GNX</div>
+          <div class="album-artist">Kendrick Lamar</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/album/4yP0hdKOZPNshxUOjY0cZj" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-7.png" alt="After Hours — The Weeknd" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">After Hours</div>
+          <div class="album-artist">The Weeknd</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/album/78bpIziExqiI9qztvNFlQu" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-8.png" alt="AM — Arctic Monkeys" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">AM</div>
+          <div class="album-artist">Arctic Monkeys</div>
+        </div>
+      </a>
+
+      <!-- Set 2 (Seamless loop duplicate) -->
+      <a class="album-card" href="https://open.spotify.com/album/56ojNOZ9rz0PnhSaHHTL7y" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-1.jpg" alt="P-Pop Culture — Karan Aujla" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">P-Pop Culture</div>
+          <div class="album-artist">Karan Aujla</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/album/3BGU0BqGwBkYDHpfCWFm7I" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-2.jpg" alt="Making Memories — Karan Aujla · Ikky" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">Making Memories</div>
+          <div class="album-artist">Karan Aujla · Ikky</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/search/Rumour%20Has%20It%20Sukha" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-3.jpg" alt="Rumour Has It — Sukha" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">Rumour Has It</div>
+          <div class="album-artist">Sukha</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/track/1gfrGJck5AUyqxtNb0M0QI" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-4.jpg" alt="Gulon Se — Anshul Rajput" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">Gulon Se</div>
+          <div class="album-artist">Anshul Rajput · Aarka</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/album/5zi7WsKlIiUXv09tbGLKsM" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-5.jpg" alt="IGOR — Tyler, The Creator" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">IGOR</div>
+          <div class="album-artist">Tyler, The Creator</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/album/0hvT3yIEysuuvkK73vgdcW" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-6.jpg" alt="GNX — Kendrick Lamar" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">GNX</div>
+          <div class="album-artist">Kendrick Lamar</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/album/4yP0hdKOZPNshxUOjY0cZj" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-7.png" alt="After Hours — The Weeknd" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">After Hours</div>
+          <div class="album-artist">The Weeknd</div>
+        </div>
+      </a>
+
+      <a class="album-card" href="https://open.spotify.com/album/78bpIziExqiI9qztvNFlQu" target="_blank" rel="noopener" title="Listen on Spotify">
+        <div class="album-art-box">
+          <img src="/assets/music/album-8.png" alt="AM — Arctic Monkeys" />
+        </div>
+        <div class="album-info">
+          <div class="album-title">AM</div>
+          <div class="album-artist">Arctic Monkeys</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ TOUCHPOINT / CONTACT CTA ══════════════════════ -->
+<section class="sec-contact wrap" id="contact">
+  <div class="sec-title-tag rv">INITIATE TOUCHPOINT</div>
+  
+  <h2 class="contact-giant-h2 rv">
+    Let's build something enduring.
+  </h2>
+
+  <p style="font-size:16px; color:var(--text-muted); max-width:560px; line-height:1.75;" class="rv">
+    Available for backend engineering, distributed systems, and applied-AI roles. If you're building a serious system, I'd like to hear about it.
+  </p>
+
+  <div class="contact-deck-grid rv">
+    <a class="contact-deck-cell" href="mailto:pranavdwivedi0204@gmail.com">
+      <span class="cd-k">Direct Email</span>
+      <span class="cd-v">pranavdwivedi0204@gmail.com</span>
+    </a>
+    <a class="contact-deck-cell" href="https://vsco.co/pranavdw/gallery" target="_blank" rel="noopener">
+      <span class="cd-k">VSCO Gallery</span>
+      <span class="cd-v">vsco.co/pranavdw ↗</span>
+    </a>
+    <a class="contact-deck-cell" href="https://linkedin.com/in/pranav-dwivedi-b08312221" target="_blank" rel="noopener">
+      <span class="cd-k">LinkedIn</span>
+      <span class="cd-v">/in/pranav-dwivedi ↗</span>
+    </a>
+    <a class="contact-deck-cell" href="https://github.com/pranavdwivedii" target="_blank" rel="noopener">
+      <span class="cd-k">GitHub</span>
+      <span class="cd-v">/pranavdwivedii ↗</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="wrap">
+  <div class="foot-inner">
+    <span class="foot-brand">PD</span>
+    <div class="foot-links">
+      <a href="https://vsco.co/pranavdw/gallery" target="_blank" rel="noopener">VSCO</a>
+      <a href="https://github.com/pranavdwivedii" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/pranav-dwivedi-b08312221" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:pranavdwivedi0204@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── 1. THEME TOGGLE (LIGHT BY DEFAULT WITH NIGHT BUTTON) ── */
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const themeText = document.getElementById('themeText');
+const rootHtml = document.documentElement;
+
+// Check saved theme or default to light
+const savedTheme = localStorage.getItem('pd_theme') || 'light';
+setTheme(savedTheme);
+
+function setTheme(theme) {
+  rootHtml.setAttribute('data-theme', theme);
+  localStorage.setItem('pd_theme', theme);
+  if (theme === 'dark') {
+    themeIcon.textContent = '☀️';
+    themeText.textContent = 'Day';
+  } else {
+    themeIcon.textContent = '🌙';
+    themeText.textContent = 'Night';
+  }
+}
+
+themeToggle.addEventListener('click', () => {
+  const currentTheme = rootHtml.getAttribute('data-theme');
+  setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+});
+
+/* ── 2. MOBILE MENU ── */
+const mm = document.getElementById('mobile-menu');
+document.getElementById('burgerBtn').addEventListener('click', () => mm.classList.add('open'));
+document.getElementById('mmClose').addEventListener('click', () => mm.classList.remove('open'));
+mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mm.classList.remove('open')));
+
+/* ── 3. SCROLL REVEAL (INTERSECTION OBSERVER) ── */
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+/* ── 4. CHRONOLOGICAL SCROLLSPY ACTIVE NAV ── */
+const spyIds = ['credentials', 'works', 'playbook', 'impact', 'capabilities', 'editorial', 'rotation', 'contact'];
+const navAnchorElements = document.querySelectorAll('.nav-links a');
+
+function updateScrollSpy() {
+  const scrollPos = window.scrollY + 200;
+  let activeId = '';
+  
+  for (let i = 0; i < spyIds.length; i++) {
+    const sec = document.getElementById(spyIds[i]);
+    if (sec) {
+      const top = sec.offsetTop;
+      const height = sec.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        activeId = spyIds[i];
+        break;
+      }
+    }
+  }
+
+  // Handle bottom of page
+  if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 60) {
+    activeId = 'contact';
+  }
+
+  navAnchorElements.forEach(a => {
+    const href = a.getAttribute('href');
+    if (href === '#' + activeId) {
+      a.classList.add('active');
+    } else {
+      a.classList.remove('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateScrollSpy, { passive: true });
+window.addEventListener('resize', updateScrollSpy);
+setTimeout(updateScrollSpy, 100);
+
+/* ── 5. HERO BLACK & WHITE DYNAMIC IMAGE CHANGER ── */
+const bwImgs = document.querySelectorAll('.hero-bw-img');
+const frameIdxLabel = document.getElementById('heroBwFrameIndex');
+const locationLabel = document.getElementById('heroBwLocation');
+
+const frameMeta = [
+  { idx: "01 / 06", loc: "EDITORIAL 4-ANGLE" },
+  { idx: "02 / 06", loc: "STREETWEAR STUDY" },
+  { idx: "03 / 06", loc: "JOHN LENNON MURAL" },
+  { idx: "04 / 06", loc: "HIMALAYAN EXPEDITION" },
+  { idx: "05 / 06", loc: "WOODEN PAVILION" },
+  { idx: "06 / 06", loc: "BRICKYARD SHADES" }
+];
+
+let currentBwIdx = 0;
+function cycleHeroBw() {
+  bwImgs.forEach((img, i) => {
+    img.classList.toggle('active', i === currentBwIdx);
+  });
+  if (frameIdxLabel && frameMeta[currentBwIdx]) {
+    frameIdxLabel.textContent = `FRAME ${frameMeta[currentBwIdx].idx}`;
+    locationLabel.textContent = frameMeta[currentBwIdx].loc;
+  }
+  currentBwIdx = (currentBwIdx + 1) % bwImgs.length;
+}
+
+let bwTimer = setInterval(cycleHeroBw, 2400);
+
+const bwGallery = document.getElementById('heroBwGallery');
+if (bwGallery) {
+  bwGallery.addEventListener('click', () => {
+    clearInterval(bwTimer);
+    cycleHeroBw();
+    bwTimer = setInterval(cycleHeroBw, 2400);
+  });
+}
+</script>
+
+</body>
 </html>
