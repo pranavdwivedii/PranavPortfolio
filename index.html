@@ -992,6 +992,36 @@ html[data-theme="dark"] .badge-cambridge { background: #222228 !important; }
   font-weight: 600;
 }
 
+.career-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.career-bullet-list li {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  position: relative;
+  padding-left: 18px;
+}
+
+.career-bullet-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent-standout);
+  font-weight: 700;
+}
+
+.career-bullet-list li strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
 .career-skills-tags {
   display: flex;
   flex-wrap: wrap;
@@ -1369,7 +1399,7 @@ footer {
         <span id="themeText">Day</span>
       </button>
 
-      <a class="nav-cta" href="https://linkedin.com/in/pranav-dwivedi-b08312221" target="_blank" rel="noopener">
+      <a class="nav-cta" href="/Resume.pdf" target="_blank" rel="noopener">
         <span>Resume</span>
         <span>↗</span>
       </a>
@@ -1397,6 +1427,7 @@ footer {
     <a href="#capabilities">Capabilities</a>
     <a href="#editorial">Off-Duty</a>
     <a href="#contact">Contact</a>
+    <a href="/Resume.pdf" target="_blank" rel="noopener" style="color:var(--accent-standout); font-weight:600;">Resume ↗</a>
   </div>
 </div>
 
@@ -1406,7 +1437,7 @@ footer {
     
     <!-- Left Column: Headline & Statements -->
     <div class="hero-left-col">
-      <div class="hero-tagline rv"><span style="color:var(--accent-standout); font-weight:700;">[ PYTHON · DJANGO · APPLIED AI ]</span> FULL STACK SYSTEMS ARCHITECT</div>
+      <div class="hero-tagline rv"><span style="color:var(--accent-standout); font-weight:700;">[ PYTHON · DJANGO · FASTAPI · APPLIED AI ]</span> BACKEND &amp; AI ENGINEER</div>
       
       <h1 class="hero-giant-title rv">
         PRANAV<br/>
@@ -1414,7 +1445,7 @@ footer {
       </h1>
 
       <p class="hero-sub-statement rv">
-        I engineer high-throughput <strong>Python backend systems (Django REST &amp; FastAPI), distributed microservices, and applied-AI architectures</strong> around a singular standard of production reliability.
+        Backend and AI engineer with <strong>2+ years across full-time and internship roles</strong>, building REST APIs and LLM-powered services in <strong>Python, Django/DRF, and FastAPI on MongoDB and AWS</strong>, including production RAG pipelines and CI/CD automation.
       </p>
     </div>
 
@@ -1454,7 +1485,7 @@ footer {
     </div>
     <div class="hero-meta-item">
       <span class="meta-k">Applied AI</span>
-      <span class="meta-v">LangChain · RAG · Vector DBs</span>
+      <span class="meta-v">RAG · LangGraph · OpenAI API</span>
     </div>
     <div class="hero-meta-item">
       <span class="meta-k">Credentials</span>
@@ -1621,22 +1652,24 @@ footer {
       </div>
       <div class="work-content-box">
         <div class="work-tag-pills">
-          <span class="tag-pill">PYTHON 3.11</span>
-          <span class="tag-pill">DJANGO REST</span>
+          <span class="tag-pill">DJANGO REST FRAMEWORK</span>
           <span class="tag-pill">FASTAPI</span>
-          <span class="tag-pill">MONGODB AGGREGATIONS</span>
-          <span class="tag-pill">LANGCHAIN RAG</span>
-          <span class="tag-pill">AWS GRAFANA</span>
+          <span class="tag-pill">PYTHON</span>
+          <span class="tag-pill">MONGODB</span>
+          <span class="tag-pill">PLOTLY</span>
+          <span class="tag-pill">LANGGRAPH</span>
+          <span class="tag-pill">AWS</span>
+          <span class="tag-pill">GRAFANA</span>
         </div>
         <h3 class="work-name">CMGalaxy</h3>
         <p class="work-desc">
-          Centralized marketing intelligence platform consolidating analytics from <strong>13+ advertising networks</strong> (Google Ads, Meta Ads, LinkedIn, Amazon, Shopify) into a unified high-throughput Python data layer with real-time ROAS forecasting, automated reporting, and LangChain RAG conversational document search.
+          Centralized marketing intelligence platform consolidating ad analytics from <strong>13+ sources</strong> (Google Ads, Meta Ads, LinkedIn, Shopify) into a unified Python data layer. Shipped a <strong>RAG-based file chat feature</strong> that vectorizes user-uploaded documents for semantic Q&amp;A with LLMs and vector search. Provisioned <strong>AWS infrastructure with live Grafana observability</strong>, alerting, and incident tracking, while optimizing MongoDB aggregation pipelines to cut API response time by 35%.
         </p>
 
         <div class="work-metrics-badge-row">
           <div class="metric-highlight">-35% <span class="label">API Latency</span></div>
           <div class="metric-highlight">13+ <span class="label">Ad Sources Unified</span></div>
-          <div class="metric-highlight">99.9% <span class="label">Uptime</span></div>
+          <div class="metric-highlight">AWS / Grafana <span class="label">Observability</span></div>
         </div>
 
         <div class="work-link-row">
@@ -1652,21 +1685,21 @@ footer {
       </div>
       <div class="work-content-box">
         <div class="work-tag-pills">
-          <span class="tag-pill">PYTHON</span>
           <span class="tag-pill">FASTAPI</span>
+          <span class="tag-pill">PYTHON</span>
           <span class="tag-pill">OPENAI API</span>
-          <span class="tag-pill">LANGCHAIN RAG</span>
+          <span class="tag-pill">LANGGRAPH</span>
           <span class="tag-pill">ASYNCIO</span>
-          <span class="tag-pill">REDIS</span>
+          <span class="tag-pill">WEB SCRAPING</span>
         </div>
         <h3 class="work-name">SmartPostAI</h3>
         <p class="work-desc">
-          An autonomous asynchronous web content pipeline built with <strong>FastAPI and LangChain</strong>. Scrapes, parses, and cleans unstructured web articles, generating platform-formatted social media posts and scheduled multi-channel content campaigns with zero I/O blocking.
+          Created a <strong>FastAPI backend</strong> that scrapes, cleans, and transforms web content into platform-ready social media posts and long-form articles. Established <strong>LLM-powered pipelines with the OpenAI API and LangGraph</strong>, automating structured creative output at scale while adopting an asynchronous processing architecture for concurrent content generation and higher throughput.
         </p>
 
         <div class="work-metrics-badge-row">
+          <div class="metric-highlight">LangGraph <span class="label">Orchestration</span></div>
           <div class="metric-highlight">Async <span class="label">Concurrency</span></div>
-          <div class="metric-highlight">LLM <span class="label">Chaining</span></div>
           <div class="metric-highlight">Zero <span class="label">I/O Blocking</span></div>
         </div>
 
@@ -1713,7 +1746,7 @@ footer {
 
 <!-- ══════════════════════ OUR PLAYBOOK (CONCISE & PYTHON-FOCUSED) ══════════════════════ -->
 <section class="sec-playbook wrap" id="playbook">
-  <div class="sec-title-tag rv">OUR PLAYBOOK / ENGINEERING ETHOS</div>
+  <div class="sec-title-tag rv">MY PLAYBOOK / ENGINEERING ETHOS</div>
 
   <div class="playbook-grid">
     
@@ -1816,17 +1849,26 @@ footer {
               <span class="career-role">Executive — Software Development</span>
               <span class="career-date">Jan 2025 – Present</span>
             </div>
-            <div class="career-company">Cyber Media India Ltd. · Gurugram, India</div>
-            <p class="career-detail">
-              Promoted to Executive SDE leading core backend architecture for the flagship <strong>CMGalaxy</strong> platform. Architected unified multi-platform data aggregation pipelines across 13+ ad networks (Google, Meta, LinkedIn, Shopify), built LangChain RAG conversational document search over marketing data, refactored 20+ legacy endpoints to modular Django Class-Based Views, and achieved a 35% reduction in API response latency.
-            </p>
+            <div class="career-company">Cyber Media India Ltd. · Gurugram, India (Hybrid)</div>
+            <ul class="career-bullet-list">
+              <li>Architected and deployed RESTful APIs for <strong>CMGalaxy</strong> using Django REST Framework, consolidating analytics from 13+ advertising platforms into a single unified data layer.</li>
+              <li>Engineered <strong>MongoDB aggregation pipelines</strong> over high-volume marketing datasets, cutting API response time by 35%.</li>
+              <li>Automated Google Ads and Meta Ads data extraction with Python scripts scheduled via cron jobs, replacing manual server-side pulls.</li>
+              <li>Scripted Google Docs to WordPress conversion and publishing in Python, automating a manual content management workflow.</li>
+              <li>Built AI-powered dashboards with Plotly and Matplotlib, surfacing ROAS, CTR, CPA, CPC, and conversion trends in one view.</li>
+              <li>Refactored 20+ Django REST APIs from function-based to class-based views, improving maintainability and modularity.</li>
+              <li>Implemented <strong>RAG pipelines</strong> with document vectorization, vector embeddings, and LLMs, enabling semantic search and conversational Q&amp;A over internal files.</li>
+              <li>Configured and maintained CI/CD pipelines in Bitbucket Pipelines, automating build, test, and deployment stages to accelerate release cycles.</li>
+            </ul>
             <div class="career-skills-tags">
-              <span class="tag-pill">Python 3.11</span>
               <span class="tag-pill">Django REST Framework</span>
               <span class="tag-pill">FastAPI</span>
-              <span class="tag-pill">LangChain RAG</span>
+              <span class="tag-pill">Python</span>
               <span class="tag-pill">MongoDB Aggregations</span>
-              <span class="tag-pill">AWS Telemetry</span>
+              <span class="tag-pill">LangGraph &amp; RAG</span>
+              <span class="tag-pill">AWS &amp; Grafana</span>
+              <span class="tag-pill">Plotly</span>
+              <span class="tag-pill">Bitbucket CI/CD</span>
             </div>
           </div>
 
@@ -1837,15 +1879,21 @@ footer {
               <span class="career-date">Jul 2024 – Dec 2024</span>
             </div>
             <div class="career-company">Cyber Media India Ltd. · Gurugram, India</div>
-            <p class="career-detail">
-              Engineered data ingestion pipelines, automated schema validation workflows, developed asynchronous web scrapers using BeautifulSoup and FastAPI, and integrated Redis caching layers to accelerate high-frequency analytical queries.
-            </p>
+            <ul class="career-bullet-list">
+              <li>Built an AI-driven social media content automation system in Python, covering the full pipeline from web scraping to platform-ready post generation.</li>
+              <li>Constructed asynchronous data collection pipelines with <code>aiohttp</code> and <code>asyncio</code>, cutting ingestion time by 40%.</li>
+              <li>Produced brand-aligned marketing content at scale using the OpenAI API and LangGraph instead of hand-written copy.</li>
+              <li>Designed modular FastAPI components, making the content generation architecture extensible and easier to maintain.</li>
+              <li>Reviewed pull requests and managed branches in Bitbucket within an agile team, keeping version control consistent.</li>
+            </ul>
             <div class="career-skills-tags">
-              <span class="tag-pill">Django</span>
-              <span class="tag-pill">REST APIs</span>
-              <span class="tag-pill">Redis Caching</span>
-              <span class="tag-pill">Celery</span>
-              <span class="tag-pill">Git / CI/CD</span>
+              <span class="tag-pill">FastAPI</span>
+              <span class="tag-pill">Python</span>
+              <span class="tag-pill">OpenAI API</span>
+              <span class="tag-pill">LangGraph</span>
+              <span class="tag-pill">Asyncio / Aiohttp</span>
+              <span class="tag-pill">Web Scraping</span>
+              <span class="tag-pill">Bitbucket Agile</span>
             </div>
           </div>
 
@@ -1860,18 +1908,18 @@ footer {
       <div class="cap-col-desc">
         <div class="edu-block">
           <div class="career-header-line">
-            <span class="career-role">B.Tech in Computer Science &amp; Engineering</span>
-            <span class="career-date">2021 – 2025</span>
+            <span class="career-role">Bachelor of Technology, Computer Science and Engineering</span>
+            <span class="career-date">Aug 2021 – Aug 2025</span>
           </div>
-          <div class="career-company">I.K. Gujral Punjab Technical University</div>
+          <div class="career-company">I.K. Gujral Punjab Technical University · Mohali, India</div>
           <p class="career-detail">
-            Acquired strong foundational and applied competence in <strong>Artificial Intelligence, Neural Networks, Advanced Data Structures &amp; Algorithms, Distributed Systems, and Database Management Architecture</strong>.
+            Comprehensive computer science curriculum focused on <strong>Artificial Intelligence, Neural Networks, Advanced Data Structures &amp; Algorithms, Distributed Systems, and Database Management Architecture</strong>.
           </p>
           <div class="career-skills-tags">
-            <span class="tag-pill">Applied AI &amp; Machine Learning</span>
+            <span class="tag-pill">Computer Science &amp; Engineering</span>
             <span class="tag-pill">Data Structures &amp; Algorithms</span>
             <span class="tag-pill">Database Architecture</span>
-            <span class="tag-pill">Object-Oriented Design</span>
+            <span class="tag-pill">Applied AI &amp; ML</span>
           </div>
         </div>
       </div>
@@ -1885,28 +1933,43 @@ footer {
         <div class="expertise-matrix-grid">
           
           <div class="expertise-item">
-            <div class="expertise-k">PYTHON &amp; BACKEND ENGINES</div>
-            <div class="expertise-v">Python 3.11+, Django REST Framework (DRF), FastAPI, Asynchronous IO, Class-Based Views (CBVs), Microservices Architecture, PyTest, RESTful API Design.</div>
+            <div class="expertise-k">LANGUAGES</div>
+            <div class="expertise-v">Python, C++</div>
           </div>
 
           <div class="expertise-item">
-            <div class="expertise-k">APPLIED AI &amp; LLM PIPELINES</div>
-            <div class="expertise-v">LangChain, OpenAI API, Retrieval-Augmented Generation (RAG), Vector Embeddings, HuggingFace Transformers, Semantic Search, Document Ingestion.</div>
+            <div class="expertise-k">BACKEND</div>
+            <div class="expertise-v">Django, Django REST Framework (DRF), FastAPI, REST API Design, Microservices, Asynchronous Programming (asyncio, aiohttp)</div>
           </div>
 
           <div class="expertise-item">
-            <div class="expertise-k">DATABASE &amp; DATA SYSTEMS</div>
-            <div class="expertise-v">MongoDB (Aggregations &amp; Sharding), Oracle DB (Materialized Views &amp; Schema Design), Redis In-Memory Cache, Celery Distributed Task Queues.</div>
+            <div class="expertise-k">AI / ML</div>
+            <div class="expertise-v">RAG Pipelines, Vector Embeddings, Semantic Search, LangGraph, OpenAI API, HuggingFace Transformers, Pandas, NumPy</div>
           </div>
 
           <div class="expertise-item">
-            <div class="expertise-k">CLOUD, DEVOPS &amp; TOOLS</div>
-            <div class="expertise-v">AWS (EC2, S3, RDS), Docker Containers, Git Version Control, Bitbucket CI/CD, Grafana Observability, Linux System Architecture.</div>
+            <div class="expertise-k">DATABASES</div>
+            <div class="expertise-v">MongoDB (aggregation pipelines, query optimization), MySQL, Caching</div>
+          </div>
+
+          <div class="expertise-item">
+            <div class="expertise-k">CLOUD &amp; DEVOPS</div>
+            <div class="expertise-v">AWS, CI/CD (Bitbucket Pipelines), Grafana Monitoring &amp; Alerting, Cron Scheduling</div>
+          </div>
+
+          <div class="expertise-item">
+            <div class="expertise-k">DATA &amp; VISUALIZATION</div>
+            <div class="expertise-v">Plotly, Matplotlib, Web Scraping, Data Extraction Pipelines</div>
+          </div>
+
+          <div class="expertise-item" style="grid-column: 1 / -1;">
+            <div class="expertise-k">TOOLS &amp; VERSION CONTROL</div>
+            <div class="expertise-v">Git, Bitbucket, GitHub, Postman, Swagger, Requests, Agile workflow, Code Review</div>
           </div>
 
         </div>
       </div>
-      <div class="cap-col-meta">Full Stack AI</div>
+      <div class="cap-col-meta">Technical Skills</div>
     </div>
 
   </div>
@@ -2148,9 +2211,9 @@ footer {
       <span class="cd-k">Direct Email</span>
       <span class="cd-v">pranavdwivedi0204@gmail.com</span>
     </a>
-    <a class="contact-deck-cell" href="https://vsco.co/pranavdw/gallery" target="_blank" rel="noopener">
-      <span class="cd-k">VSCO Gallery</span>
-      <span class="cd-v">vsco.co/pranavdw ↗</span>
+    <a class="contact-deck-cell" href="tel:+918968250147">
+      <span class="cd-k">Direct Phone</span>
+      <span class="cd-v">+91-8968250147</span>
     </a>
     <a class="contact-deck-cell" href="https://linkedin.com/in/pranav-dwivedi-b08312221" target="_blank" rel="noopener">
       <span class="cd-k">LinkedIn</span>
@@ -2168,6 +2231,7 @@ footer {
   <div class="foot-inner">
     <span class="foot-brand">PD</span>
     <div class="foot-links">
+      <a href="/Resume.pdf" target="_blank" rel="noopener">Resume</a>
       <a href="https://vsco.co/pranavdw/gallery" target="_blank" rel="noopener">VSCO</a>
       <a href="https://github.com/pranavdwivedii" target="_blank" rel="noopener">GitHub</a>
       <a href="https://linkedin.com/in/pranav-dwivedi-b08312221" target="_blank" rel="noopener">LinkedIn</a>
